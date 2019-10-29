@@ -1,0 +1,32 @@
+>>> CLASSES (TASKS):
+- Tasks
+	-Setpoint
+	-Leitura Encoder
+	-Controle e PWM
+- Recursos compartilhados (semáforo)
+	-Variáveis de velocidade e sentido setados
+	-Variáveis de velocidade e sentido medidas
+	-UART
+	- (...)
+- Dicas:
+	-Verificar pontos de fila de mensagem, timers e eventos
+	-Estudar exemplo do slide de Prog. Concorrente (8)
+	-Não exagerar na quantidade de elementos (fácil compreensão)
+
+>>> ATIVIDADES:
+- Setpoint:
+	-Leitura periódica da UART
+	-Seta variáveis de velocidade e sentido ao receber valor novo (semáforo)
+- Leitura Encoder:
+	-Leitura constante dos dois pinos
+	-Lógica de detecção de sentido e velocidade
+	-Escrita em variáveis globais (semáforo)
+- Controle e PWM:
+	-Leitura constante das variáveis de velocidade e sentido (semáforo)
+	-Lógica de controle PID
+	-Habilita GPIO para sentido determinado
+	-Determinação do duty-cycle por função linear com RPM máx. do motor
+	-Saída constante de sinal PWM
+
+>>> ESTADOS:
+- Verificar necessidade, talvez se alguma atividade for mais complexa
