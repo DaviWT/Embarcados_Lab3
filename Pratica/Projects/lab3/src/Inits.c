@@ -45,7 +45,7 @@ void PWMInit (void)
     // Set the Period (expressed in clock ticks). For Example, in order to make
     // a PWM clock with 10kHZ, is used 12000 clock ticks.
 //    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_0, SystemCoreClock/(8*PWM_CLOCK));
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_0, 15000);
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_0, PWMTICKS);
     
     // Set the pulse width of PWM0 for a 30% duty cycle.
 //    PWMPulseWidthSet(PWM0_BASE, PWM_OUT_0, (PWM_DUTY/100)*SystemCoreClock/(8*PWM_CLOCK));

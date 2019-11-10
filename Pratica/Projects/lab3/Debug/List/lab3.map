@@ -1,6 +1,6 @@
 ###############################################################################
 #
-# IAR ELF Linker V8.40.1.212/W32 for ARM                  10/Nov/2019  18:00:35
+# IAR ELF Linker V8.40.1.212/W32 for ARM                  10/Nov/2019  18:59:25
 # Copyright 2007-2019 IAR Systems AB.
 #
 #    Output file  =
@@ -8,7 +8,7 @@
 #    Map file     =
 #        C:\Users\PCHOME\Desktop\Git\Embarcados_Lab3\Pratica\Projects\lab3\Debug\List\lab3.map
 #    Command line =
-#        -f C:\Users\PCHOME\AppData\Local\Temp\EW7FC8.tmp
+#        -f C:\Users\PCHOME\AppData\Local\Temp\EW5CF4.tmp
 #        (C:\Users\PCHOME\Desktop\Git\Embarcados_Lab3\Pratica\Projects\lab3\Debug\Obj\Controle.o
 #        C:\Users\PCHOME\Desktop\Git\Embarcados_Lab3\Pratica\Projects\lab3\Debug\Obj\driverleds.o
 #        C:\Users\PCHOME\Desktop\Git\Embarcados_Lab3\Pratica\TivaWare_C_Series-2.1.4.178\driverlib\ewarm\Exe\driverlib.a
@@ -68,7 +68,7 @@ initialize by copy { rw };
   .intvec               ro code          0x0   0x3c0  startup_TM4C1294.o [1]
                                      - 0x3c0   0x3c0
 
-"P1":                                         0x2ed9
+"P1":                                         0x2f19
   .text                 ro code        0x3c0   0x768  rtx_thread.o [2]
   .text                 ro code        0xb28     0x2  rtx_evr.o [2]
   .text                 ro code        0xb2a     0x2  rtx_evr.o [2]
@@ -163,40 +163,41 @@ initialize by copy { rw };
   .text                 ro code       0x2fe8     0x2  rtx_evr.o [2]
   .text                 ro code       0x2fea     0x2  rtx_evr.o [2]
   .text                 ro code       0x2fec     0x2  rtx_evr.o [2]
-  .text                 ro code       0x2fee    0x38  packbits_init_single.o [5]
-  .rodata               const         0x3028    0x30  sysctl.o [4]
-  .text                 ro code       0x3058    0x28  data_init.o [5]
-  .rodata               const         0x3080    0x24  rtx_lib.o [1]
-  .rodata               const         0x30a4    0x24  rtx_lib.o [1]
-  .text                 ro code       0x30c8    0x24  Controle.o [1]
-  .text                 ro code       0x30ec    0x24  Encoder.o [1]
-  .iar.init_table       const         0x3110    0x20  - Linker created -
-  .text                 ro code       0x3130    0x1e  cmain.o [5]
-  .text                 ro code       0x314e     0x4  low_level_init.o [3]
-  .text                 ro code       0x3152     0x4  exit.o [3]
-  .text                 ro code       0x3158     0xa  cexit.o [5]
-  .text                 ro code       0x3164    0x14  exit.o [6]
-  .text                 ro code       0x3178    0x1c  Setpoint.o [1]
-  .rodata               const         0x3194    0x18  Controle.o [1]
-  .rodata               const         0x31ac    0x18  Encoder.o [1]
-  .rodata               const         0x31c4    0x18  rtx_lib.o [1]
-  .rodata               const         0x31dc    0x18  Setpoint.o [1]
-  .rodata               const         0x31f4    0x14  uartstdio.o [1]
-  .text                 ro code       0x3208    0x14  startup_TM4C1294.o [1]
-  .rodata               const         0x321c    0x10  lab3.o [1]
-  .rodata               const         0x322c    0x10  lab3.o [1]
-  .rodata               const         0x323c    0x10  lab3.o [1]
-  .rodata               const         0x324c     0xc  uartstdio.o [1]
-  .rodata               const         0x3258     0xc  uartstdio.o [1]
-  .rodata               const         0x3264     0xc  uartstdio.o [1]
-  .text                 ro code       0x3270     0xc  cstartup_M.o [5]
-  .rodata               const         0x327c     0x8  uartstdio.o [1]
-  .rodata               const         0x3284     0x4  rtx_lib.o [1]
-  .rodata               const         0x3288     0x4  uartstdio.o [1]
-  .rodata               const         0x328c     0x0  zero_init3.o [5]
-  .rodata               const         0x328c     0x0  packbits_init_single.o [5]
-  Initializer bytes     const         0x328c     0xd  <for P2-1>
-                                    - 0x3299  0x2ed9
+  .text                 ro code       0x2ff0    0x40  Controle.o [1]
+  .text                 ro code       0x3030    0x38  packbits_init_single.o [5]
+  .rodata               const         0x3068    0x30  sysctl.o [4]
+  .text                 ro code       0x3098    0x28  data_init.o [5]
+  .rodata               const         0x30c0    0x24  Controle.o [1]
+  .rodata               const         0x30e4    0x24  rtx_lib.o [1]
+  .rodata               const         0x3108    0x24  rtx_lib.o [1]
+  .text                 ro code       0x312c    0x24  Encoder.o [1]
+  .iar.init_table       const         0x3150    0x20  - Linker created -
+  .text                 ro code       0x3170    0x1e  cmain.o [5]
+  .text                 ro code       0x318e     0x4  low_level_init.o [3]
+  .text                 ro code       0x3192     0x4  exit.o [3]
+  .text                 ro code       0x3198     0xa  cexit.o [5]
+  .text                 ro code       0x31a4    0x14  exit.o [6]
+  .text                 ro code       0x31b8    0x1c  Setpoint.o [1]
+  .rodata               const         0x31d4    0x18  Controle.o [1]
+  .rodata               const         0x31ec    0x18  Encoder.o [1]
+  .rodata               const         0x3204    0x18  rtx_lib.o [1]
+  .rodata               const         0x321c    0x18  Setpoint.o [1]
+  .rodata               const         0x3234    0x14  uartstdio.o [1]
+  .text                 ro code       0x3248    0x14  startup_TM4C1294.o [1]
+  .rodata               const         0x325c    0x10  lab3.o [1]
+  .rodata               const         0x326c    0x10  lab3.o [1]
+  .rodata               const         0x327c    0x10  lab3.o [1]
+  .rodata               const         0x328c     0xc  uartstdio.o [1]
+  .rodata               const         0x3298     0xc  uartstdio.o [1]
+  .rodata               const         0x32a4     0xc  uartstdio.o [1]
+  .text                 ro code       0x32b0     0xc  cstartup_M.o [5]
+  .rodata               const         0x32bc     0x8  uartstdio.o [1]
+  .rodata               const         0x32c4     0x4  rtx_lib.o [1]
+  .rodata               const         0x32c8     0x4  uartstdio.o [1]
+  .rodata               const         0x32cc     0x0  zero_init3.o [5]
+  .rodata               const         0x32cc     0x0  packbits_init_single.o [5]
+  Initializer bytes     const         0x32cc     0xd  <for P2-1>
+                                    - 0x32d9  0x2f19
 
 "P2", part 1 of 3:                              0xa4
   P2-1                           0x2000'0000    0xa4  <Init block>
@@ -241,7 +242,7 @@ Unused ranges:
 
          From           To      Size
          ----           --      ----
-       0x3299     0xf'ffff  0xf'cd67
+       0x32d9     0xf'ffff  0xf'cd27
   0x2000'98b0  0x2003'ffff  0x3'6750
 
 
@@ -257,7 +258,7 @@ Zero (__iar_zero_init3)
 
 Copy/packbits (__iar_packbits_init_single3)
     1 source range, total size 0xd (7% of destination):
-               0x328c     0xd
+               0x32cc     0xd
     1 destination range, total size 0xa4:
           0x2000'0000    0xa4
 
@@ -274,7 +275,7 @@ command line/config:
     Total:
 
 C:\Users\PCHOME\Desktop\Git\Embarcados_Lab3\Pratica\Projects\lab3\Debug\Obj: [1]
-    Controle.o                   36       24
+    Controle.o                   64       60
     Encoder.o                    36       24
     Inits.o                     484
     RTX_Config.o                 34
@@ -285,7 +286,7 @@ C:\Users\PCHOME\Desktop\Git\Embarcados_Lab3\Pratica\Projects\lab3\Debug\Obj: [1]
     system_TM4C1294_TW.o         44                 4
     uartstdio.o               1'304       68    1'178
     -------------------------------------------------
-    Total:                    3'134      392    6'146
+    Total:                    3'162      428    6'146
 
 RTX_CM.a: [2]
     irq_cm4f.o                  196
@@ -341,10 +342,10 @@ shb_l.a: [6]
     -------------------------------------------------
     Total:                       20
 
-    Gaps                         16        2        4
+    Gaps                         18                 4
     Linker created                        32   32'768
 -----------------------------------------------------
-    Grand Total:             11'782    1'171   39'083
+    Grand Total:             11'812    1'205   39'083
 
 
 *******************************************************************************
@@ -353,9 +354,9 @@ shb_l.a: [6]
 
 Entry                       Address    Size  Type      Object
 -----                       -------    ----  ----      ------
-.iar.init_table$$Base        0x3110           --   Gb  - Linker created -
-.iar.init_table$$Limit       0x3130           --   Gb  - Linker created -
-?main                        0x3131          Code  Gb  cmain.o [5]
+.iar.init_table$$Base        0x3150           --   Gb  - Linker created -
+.iar.init_table$$Limit       0x3170           --   Gb  - Linker created -
+?main                        0x3171          Code  Gb  cmain.o [5]
 CPUcpsid                     0x2141     0x8  Code  Gb  cpu.o [4]
 CPUcpsie                     0x2149     0x8  Code  Gb  cpu.o [4]
 CSTACK$$Base            0x2000'18b0           --   Gb  - Linker created -
@@ -464,8 +465,8 @@ PWMOutputState               0x28fb    0x14  Code  Gb  pwm.o [4]
 PWMPulseWidthSet             0x28d7    0x24  Code  Gb  pwm.o [4]
 PendST                  0x2000'18a6     0x1  Data  Lc  os_systick.o [2]
 PendSV_Handler               0x2cf1          Code  Gb  irq_cm4f.o [2]
-Region$$Table$$Base          0x3110           --   Gb  - Linker created -
-Region$$Table$$Limit         0x3130           --   Gb  - Linker created -
+Region$$Table$$Base          0x3150           --   Gb  - Linker created -
+Region$$Table$$Limit         0x3170           --   Gb  - Linker created -
 SVC_Handler                  0x2c59          Code  Gb  irq_cm4f.o [2]
 SysCtlClockFreqSet           0x1eff   0x1fc  Code  Gb  sysctl.o [4]
 SysCtlPeripheralEnable       0x1ee1     0x8  Code  Gb  sysctl.o [4]
@@ -477,7 +478,7 @@ SystemCoreClock         0x2000'18a8     0x4  Data  Gb  system_TM4C1294_TW.o [1]
 SystemInit                   0x2dd5    0x1a  Code  Gb  system_TM4C1294_TW.o [1]
 TIMERInit                    0x2755    0x60  Code  Gb  Inits.o [1]
 ThreadFlagsCheck              0x3c1    0x6c  Code  Lc  rtx_thread.o [2]
-Thread_Mutex_attr            0x323c    0x10  Data  Gb  lab3.o [1]
+Thread_Mutex_attr            0x327c    0x10  Data  Gb  lab3.o [1]
 TimerConfigure               0x2935    0x54  Code  Gb  timer.o [4]
 TimerControlEvent            0x2999    0x16  Code  Gb  timer.o [4]
 TimerEnable                  0x2925    0x10  Code  Gb  timer.o [4]
@@ -517,28 +518,28 @@ __aeabi_memclr4               0xce9          Code  Gb  ABImemclr4.o [5]
 __aeabi_memcpy               0x14d9          Code  Gb  ABImemcpy.o [5]
 __aeabi_memcpy4              0x14f9          Code  Gb  ABImemcpy.o [5]
 __aeabi_memcpy8              0x14f9          Code  Gb  ABImemcpy.o [5]
-__cmain                      0x3131          Code  Gb  cmain.o [5]
-__exit                       0x3165    0x14  Code  Gb  exit.o [6]
+__cmain                      0x3171          Code  Gb  cmain.o [5]
+__exit                       0x31a5    0x14  Code  Gb  exit.o [6]
 __iar_Memset4_word            0xe7d          Code  Gb  ABImemset48.o [5]
 __iar_Memset8_word            0xe7d          Code  Gb  ABImemset48.o [5]
 __iar_Memset_word            0x1711          Code  Gb  ABImemset.o [5]
-__iar_data_init3             0x3059    0x28  Code  Gb  data_init.o [5]
-__iar_init_vfp               0x3211          Code  Wk  startup_TM4C1294.o [1]
+__iar_data_init3             0x3099    0x28  Code  Gb  data_init.o [5]
+__iar_init_vfp               0x3251          Code  Wk  startup_TM4C1294.o [1]
 __iar_packbits_init_single3
-                             0x2fef    0x38  Code  Gb  packbits_init_single.o [5]
-__iar_program_start          0x3271          Code  Gb  cstartup_M.o [5]
+                             0x3031    0x38  Code  Gb  packbits_init_single.o [5]
+__iar_program_start          0x32b1          Code  Gb  cstartup_M.o [5]
 __iar_zero_init3              0xb43    0x3a  Code  Gb  zero_init3.o [5]
-__low_level_init             0x314f     0x4  Code  Gb  low_level_init.o [3]
+__low_level_init             0x318f     0x4  Code  Gb  low_level_init.o [3]
 __vector_table                  0x0          Data  Gb  startup_TM4C1294.o [1]
 __vector_table_0x1c            0x1c          Data  Gb  startup_TM4C1294.o [1]
-_call_main                   0x313d          Code  Gb  cmain.o [5]
-_exit                        0x3159          Code  Gb  cexit.o [5]
-_main                        0x314b          Code  Gb  cmain.o [5]
+_call_main                   0x317d          Code  Gb  cmain.o [5]
+_exit                        0x3199          Code  Gb  cexit.o [5]
+_main                        0x318b          Code  Gb  cmain.o [5]
 controle_id             0x2000'1878     0x4  Data  Gb  lab3.o [1]
 encoder_id              0x2000'187c     0x4  Data  Gb  lab3.o [1]
-exit                         0x3153     0x4  Code  Gb  exit.o [3]
+exit                         0x3193     0x4  Code  Gb  exit.o [3]
 g_bDisableEcho          0x2000'18a4     0x1  Data  Lc  uartstdio.o [1]
-g_pcHex                      0x3288     0x4  Data  Lc  uartstdio.o [1]
+g_pcHex                      0x32c8     0x4  Data  Lc  uartstdio.o [1]
 g_pcUARTRxBuffer        0x2000'16a8    0x80  Data  Lc  uartstdio.o [1]
 g_pcUARTTxBuffer        0x2000'10a8   0x400  Data  Lc  uartstdio.o [1]
 g_pppui32XTALtoVCO           0x29d0   0x1b0  Data  Lc  sysctl.o [4]
@@ -547,12 +548,12 @@ g_pui32EnRegs                0x1d58    0x14  Data  Lc  interrupt.o [4]
 g_pui32GPIOBaseAddrs         0x2e20    0x90  Data  Lc  gpio.o [4]
 g_pui32VCOFrequencies        0x2138     0x8  Data  Lc  sysctl.o [4]
 g_pui32Xtals                 0x2eb0    0x6c  Data  Lc  sysctl.o [4]
-g_sXTALtoMEMTIM              0x3028    0x30  Data  Lc  sysctl.o [4]
+g_sXTALtoMEMTIM              0x3068    0x30  Data  Lc  sysctl.o [4]
 g_ui32Base              0x2000'189c     0x4  Data  Lc  uartstdio.o [1]
 g_ui32PortNum           0x2000'18a0     0x4  Data  Lc  uartstdio.o [1]
-g_ui32UARTBase               0x324c     0xc  Data  Lc  uartstdio.o [1]
-g_ui32UARTInt                0x3258     0xc  Data  Lc  uartstdio.o [1]
-g_ui32UARTPeriph             0x3264     0xc  Data  Lc  uartstdio.o [1]
+g_ui32UARTBase               0x328c     0xc  Data  Lc  uartstdio.o [1]
+g_ui32UARTInt                0x3298     0xc  Data  Lc  uartstdio.o [1]
+g_ui32UARTPeriph             0x32a4     0xc  Data  Lc  uartstdio.o [1]
 g_ui32UARTRxReadIndex   0x2000'1898     0x4  Data  Lc  uartstdio.o [1]
 g_ui32UARTRxWriteIndex  0x2000'1894     0x4  Data  Lc  uartstdio.o [1]
 g_ui32UARTTxReadIndex   0x2000'1890     0x4  Data  Lc  uartstdio.o [1]
@@ -604,18 +605,18 @@ osRtxThreadWaitExit           0x6d3    0x2e  Code  Gb  rtx_thread.o [2]
 osRtxTick_Handler            0x1599    0x6e  Code  Gb  rtx_system.o [2]
 osRtxTimerThread             0x2c11    0x44  Code  Wk  rtx_timer.o [2]
 osRtxTimerTick               0x2bb9    0x54  Code  Lc  rtx_timer.o [2]
-osRtxUserSVC                 0x3284     0x4  Data  Wk  rtx_lib.o [1]
+osRtxUserSVC                 0x32c4     0x4  Data  Wk  rtx_lib.o [1]
 osThreadExit                  0xacd    0x16  Code  Gb  rtx_thread.o [2]
 osThreadNew                   0xa85    0x40  Code  Gb  rtx_thread.o [2]
-os_idle_thread_attr          0x3080    0x24  Data  Lc  rtx_lib.o [1]
+os_idle_thread_attr          0x30e4    0x24  Data  Lc  rtx_lib.o [1]
 os_idle_thread_cb       0x2000'1778    0x44  Data  Lc  rtx_lib.o [1]
 os_idle_thread_stack    0x2000'14a8   0x100  Data  Lc  rtx_lib.o [1]
 os_isr_queue            0x2000'1800    0x40  Data  Lc  rtx_lib.o [1]
 os_mem                  0x2000'00a8  0x1000  Data  Lc  rtx_lib.o [1]
-os_timer_mq_attr             0x31c4    0x18  Data  Lc  rtx_lib.o [1]
+os_timer_mq_attr             0x3204    0x18  Data  Lc  rtx_lib.o [1]
 os_timer_mq_cb          0x2000'1840    0x34  Data  Lc  rtx_lib.o [1]
 os_timer_mq_data        0x2000'1728    0x50  Data  Lc  rtx_lib.o [1]
-os_timer_thread_attr         0x30a4    0x24  Data  Lc  rtx_lib.o [1]
+os_timer_thread_attr         0x3108    0x24  Data  Lc  rtx_lib.o [1]
 os_timer_thread_cb      0x2000'17bc    0x44  Data  Lc  rtx_lib.o [1]
 os_timer_thread_stack   0x2000'15a8   0x100  Data  Lc  rtx_lib.o [1]
 setpoint_id             0x2000'1874     0x4  Data  Gb  lab3.o [1]
@@ -629,9 +630,9 @@ svcRtxMessageQueuePut        0x1179    0xd4  Code  Lc  rtx_msgqueue.o [2]
 svcRtxMutexNew                0xd8f    0x7e  Code  Lc  rtx_mutex.o [2]
 svcRtxThreadExit              0x9bd    0x8e  Code  Lc  rtx_thread.o [2]
 svcRtxThreadNew               0x795   0x1cc  Code  Lc  rtx_thread.o [2]
-xControleTask                0x30c9    0x24  Code  Gb  Controle.o [1]
-xEncoderTask                 0x30ed    0x24  Code  Gb  Encoder.o [1]
-xSetPointTask                0x3179    0x1c  Code  Gb  Setpoint.o [1]
+xControleTask                0x2ff1    0x40  Code  Gb  Controle.o [1]
+xEncoderTask                 0x312d    0x24  Code  Gb  Encoder.o [1]
+xSetPointTask                0x31b9    0x1c  Code  Gb  Setpoint.o [1]
 
 
 [1] = C:\Users\PCHOME\Desktop\Git\Embarcados_Lab3\Pratica\Projects\lab3\Debug\Obj
@@ -641,8 +642,8 @@ xSetPointTask                0x3179    0x1c  Code  Gb  Setpoint.o [1]
 [5] = rt7M_tl.a
 [6] = shb_l.a
 
-  11'782 bytes of readonly  code memory
-   1'171 bytes of readonly  data memory
+  11'812 bytes of readonly  code memory
+   1'205 bytes of readonly  data memory
   39'083 bytes of readwrite data memory
 
 Errors: none

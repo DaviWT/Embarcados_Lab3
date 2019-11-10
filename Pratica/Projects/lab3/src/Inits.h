@@ -1,6 +1,9 @@
 #ifndef INITS_H
 #define INITS_H
 
+//
+//  Includes
+//
 #include <stdint.h>
 #include <stdio.h>
 #include <stdbool.h>
@@ -17,14 +20,40 @@
 #include "driverlib/interrupt.h"
 #include "driverlib/timer.h"
 #include "driverlib/pwm.h"
-#include "system_tm4c1294.h" // CMSIS-Core
-#include "driverleds.h" // device drivers
-#include "cmsis_os2.h" // CMSIS-RTOS
+#include "system_tm4c1294.h"    // CMSIS-Core
+#include "driverleds.h"         // device drivers
+#include "cmsis_os2.h"          // CMSIS-RTOS
 
+//
+//  Defines
+//
+#define PWMTICKS 15000      // Number of PWM ticks that define the PWM period
+#define PWMOFFSET 10000     // Minimum number of PWM ticks to keep the motor working properly
+#define REF 0               // Refence value of stabilization
+#define KP 0                // Proporcional constant of the PI controller
+#define KI 0                // Integrative constant of the PI controller
+
+//
+//  Structs
+//
+typedef struct{
+    float velocidade;
+    float sentido;
+} Configs;
+
+typedef struct{
+    float velocidade;
+    float sentido;
+} Measurement;
+
+//
+//  Prototypes
+//
 void UARTInit(void);
 void PWMInit (void);
 void TimerA0Isr(void);
 void TIMERInit();
 void GPIOInit();
+
 
 #endif
