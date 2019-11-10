@@ -20,7 +20,9 @@ rule browsedata
 
 
 #Build steps
+build Controle.pbi : index Controle.xcl
 build driverleds.pbi : index driverleds.xcl
+build Encoder.pbi : index Encoder.xcl
 build Inits.pbi : index Inits.xcl
 build lab3.pbi : index lab3.xcl
 build RTX_Config.pbi : index RTX_Config.xcl
@@ -28,10 +30,11 @@ build rtx_lib.pbi : index rtx_lib.xcl
 build Setpoint.pbi : index Setpoint.xcl
 build system_TM4C1294_TW.pbi : index system_TM4C1294_TW.xcl
 build uartstdio.pbi : index uartstdio.xcl
-build lab3_part0.pbi : link driverleds.pbi Inits.pbi lab3.pbi
-build lab3_part1.pbi : link RTX_Config.pbi rtx_lib.pbi Setpoint.pbi
-build lab3_part2.pbi : link system_TM4C1294_TW.pbi uartstdio.pbi
-build lab3.pbd : link lab3_part0.pbi lab3_part1.pbi lab3_part2.pbi
+build lab3_part0.pbi : link Controle.pbi driverleds.pbi Encoder.pbi
+build lab3_part1.pbi : link Inits.pbi lab3.pbi RTX_Config.pbi
+build lab3_part2.pbi : link rtx_lib.pbi Setpoint.pbi system_TM4C1294_TW.pbi
+build lab3_part3.pbi : link uartstdio.pbi
+build lab3.pbd : link lab3_part0.pbi lab3_part1.pbi lab3_part2.pbi lab3_part3.pbi
 build lab3.pbw : browsedata lab3.pbd
 
 

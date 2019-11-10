@@ -1,4 +1,6 @@
 lab3.pbi: \
+  C:\Users\PCHOME\Desktop\Git\Embarcados_Lab3\Pratica\Projects\lab3\src\Controle.h \
+  C:\Users\PCHOME\Desktop\Git\Embarcados_Lab3\Pratica\Projects\lab3\src\Encoder.h \
   C:\Users\PCHOME\Desktop\Git\Embarcados_Lab3\Pratica\Projects\lab3\src\Setpoint.h \
   D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\ycheck.h \
   D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\arm\inc\c\stddef.h \

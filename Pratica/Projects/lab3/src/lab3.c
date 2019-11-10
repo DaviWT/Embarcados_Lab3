@@ -1,27 +1,43 @@
-/*
-*       Sistemas Embarcados - Lab3
-*     
-*       Adriano Ricardo de Abreu Gamba
-*       Davi Wei Tokikawa
-*/
+//******************************************************************************
+//  LAB 3 SISTEMAS EMBARCADOS - UTFPR 2019/2
+//
+//  Alunos:
+//  -Adriano Ricardo de Abreu Gamba
+//  -Davi Wei Tokikawa
+//
+//  Controle de velocidade e sentido de motor DC
+//
+//  Outputs: PWM, velocidade e sentido do motor (Serial).
+//  Inputs: Encoder.
+//
+//  Obs:
+//  1) Based on TivaWare_C_Series-2.1.4.178;
+//******************************************************************************
+
+/***** Geral ******************************************************************/
 
 //
-// Includes
+//  Includes
 //
 #include "Inits.h"
 #include "Setpoint.h"
+#include "Encoder.h"
+#include "Controle.h"
 
 //
-// Defines
+//  Defines
 //
 #define DEBUG_MODE 0
 #define BUFFER_SIZE 8
 
 //
-// Global Variables
+//  Global Variables
 //
 extern void UARTStdioIntHandler(void);
 
+//
+//  Callbacks
+//
 void UART0_Handler(void)
 {
     UARTStdioIntHandler();
@@ -59,9 +75,26 @@ void UART0_Handler(void)
 //    TimerEnable(TIMER0_BASE, TIMER_A);
 //}
 
-/***************************************************************/
+/***** CMSIS-RTOS *************************************************************/
 
-osThreadId_t setpoint_id;
+//
+// Mutex Attributes
+//
+const osMutexAttr_t Thread_Mutex_attr = { "myThreadMutex",  // human readable mutex name
+                                          osMutexRecursive, // attr_bits
+                                          NULL,             // memory for control block   
+                                          0U };             // size for control block
+
+//
+//  Threads declaration
+//
+osThreadId_t setpoint_id, controle_id, encoder_id;
+
+//
+//  Semaphores declaration
+//
+osMutexId_t mutexUartDriver_id, mutexSetPointParams_id, mutexMeasurement_id;
+
 //osSemaphoreId_t vazio_id, cheio_id;
 //uint8_t buffer[BUFFER_SIZE];
 //
@@ -100,32 +133,41 @@ osThreadId_t setpoint_id;
 //  } // while
 //} // consumidor
 
+/***** Main *******************************************************************/
+
 void main(void){
   
-  SystemInit();
-  
-  //
-  //Inicializa periféricos
-  //
-  FPUEnable();
-  FPULazyStackingEnable();
-  IntMasterEnable();
-  GPIOInit();
-  TIMERInit();
-  UARTInit();
-  PWMInit();
-//  LEDInit(LED4 | LED3 | LED2 | LED1);
+    // System init
+    SystemInit();
 
-  osKernelInitialize();
+    // Peripheral init
+    FPUEnable();
+    FPULazyStackingEnable();
+    IntMasterEnable();
+    GPIOInit();
+    TIMERInit();
+    UARTInit();
+    PWMInit();
+//    LEDInit(LED4 | LED3 | LED2 | LED1);
 
-//  setpoint_id = osThreadNew(xSetpointTask, NULL, NULL);
-//  consumidor_id = osThreadNew(consumidor, NULL, NULL);
-
-//  vazio_id = osSemaphoreNew(BUFFER_SIZE, BUFFER_SIZE, NULL); // espaços disponíveis = BUFFER_SIZE
-//  cheio_id = osSemaphoreNew(BUFFER_SIZE, 0, NULL); // espaços ocupados = 0
-  
-  if(osKernelGetState() == osKernelReady)
+    // CMSIS-RTOS kernel init
+    osKernelInitialize();
+    
+    // Threads init
+    setpoint_id = osThreadNew(xSetPointTask, NULL, NULL);
+    encoder_id = osThreadNew(xEncoderTask, NULL, NULL);
+    controle_id = osThreadNew(xControleTask, NULL, NULL);
+    
+    // Mutexes init
+    mutexUartDriver_id = osMutexNew(&Thread_Mutex_attr);
+    mutexSetPointParams_id = osMutexNew(&Thread_Mutex_attr);  
+    mutexMeasurement_id = osMutexNew(&Thread_Mutex_attr);  
+    
+    UARTprintf("Hello lab3!\n");
+    
+    // CMSIS-RTOS init 
+    if(osKernelGetState() == osKernelReady)
     osKernelStart();
 
-  while(1);
-} // main
+    while(1);
+}

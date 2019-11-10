@@ -3,4 +3,6 @@
 
 #include "Inits.h"
 
+void xSetPointTask(void *arg);
+
 #endif

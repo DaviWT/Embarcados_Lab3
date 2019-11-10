@@ -1,6 +1,12 @@
 #include "Setpoint.h"
 
-void xSetpointTask(void *arg){
+void xSetPointTask(void *arg){
+    int i = 0;
+    while(1) {
+        UARTprintf("Hello SetPoint! (%i)\n",i);
+        i++;
+        osDelay(500);   
+    }
 //  uint8_t index_i = 0, count = 0;
 //  
 //  while(1){
@@ -10,4 +16,4 @@ void xSetpointTask(void *arg){
 //    
 //    osDelay(500);
 //  } // while  
-} // produtor
+}

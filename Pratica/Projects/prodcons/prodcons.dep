@@ -4,6 +4,15 @@
     <fileChecksum>1555513324</fileChecksum>
     <configuration>
         <name>Debug</name>
-        <outputs />
+        <outputs>
+            <file>$PROJ_DIR$\..\drivers\driverleds.c</file>
+            <file>$PROJ_DIR$\src\rtx_lib.c</file>
+            <file>$PROJ_DIR$\src\system_TM4C1294_TW.c</file>
+            <file>$PROJ_DIR$\..\..\TivaWare_C_Series-2.1.4.178\driverlib\ewarm\Exe\driverlib.a</file>
+            <file>$PROJ_DIR$\src\prodcons.c</file>
+            <file>$PROJ_DIR$\..\..\CMSIS-5.6.0\CMSIS\RTOS2\RTX\Library\IAR\IDE\CM4F\Exe\RTX_CM.a</file>
+            <file>$PROJ_DIR$\src\RTX_Config.c</file>
+            <file>$PROJ_DIR$\src\startup_TM4C1294.s</file>
+        </outputs>
     </configuration>
 </project>

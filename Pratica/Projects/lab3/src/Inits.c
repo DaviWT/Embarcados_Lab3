@@ -61,6 +61,7 @@ void PWMInit (void)
     // Enable the outputs.
     PWMOutputState(PWM0_BASE, (PWM_OUT_0_BIT | PWM_OUT_1_BIT), true);    
 }
+
 //******************************************************************************
 //
 //  TIMER Configuration

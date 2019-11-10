@@ -2370,10 +2370,22 @@
         </settings>
     </configuration>
     <file>
+        <name>$PROJ_DIR$\src\Controle.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\src\Controle.h</name>
+    </file>
+    <file>
         <name>$PROJ_DIR$\..\drivers\driverleds.c</name>
     </file>
     <file>
         <name>$PROJ_DIR$\..\..\TivaWare_C_Series-2.1.4.178\driverlib\ewarm\Exe\driverlib.a</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\src\Encoder.c</name>
+    </file>
+    <file>
+        <name>$PROJ_DIR$\src\Encoder.h</name>
     </file>
     <file>
         <name>$PROJ_DIR$\src\Inits.c</name>
