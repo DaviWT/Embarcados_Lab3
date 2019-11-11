@@ -27,7 +27,6 @@
 //
 //  Defines
 //
-#define DEBUG_MODE 0
 #define BUFFER_SIZE 8
 
 //
@@ -156,7 +155,10 @@ void main(void){
     // Threads init
     setpoint_id = osThreadNew(xSetPointTask, NULL, NULL);
     encoder_id = osThreadNew(xEncoderTask, NULL, NULL);
-    controle_id = osThreadNew(xControleTask, NULL, NULL);
+    const osThreadAttr_t controle_id_attr = {
+        .stack_size = 1024  // Create the thread stack with a size of 1024 bytes
+    };
+    controle_id = osThreadNew(xControleTask, NULL, &controle_id_attr);
     
     // Mutexes init
     mutexUartDriver_id = osMutexNew(&Thread_Mutex_attr);
