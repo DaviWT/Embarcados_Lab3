@@ -5,8 +5,10 @@
 //  Includes
 //
 #include <stdint.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <stdbool.h>
+#include <string.h>
 #include "inc/hw_ints.h"
 #include "inc/hw_memmap.h"
 #include "inc/hw_types.h"
@@ -32,19 +34,24 @@
 #define REF 0               // Refence value of stabilization
 #define KP 0                // Proporcional constant of the PI controller
 #define KI 0                // Integrative constant of the PI controller
+#define DEBUG_MODE 1
 
 //
 //  Structs
 //
 typedef struct{
-    float velocidade;
-    float sentido;
+    int velocidade;
+    bool sentido;
 } Configs;
 
+extern Configs configs;
+
 typedef struct{
-    float velocidade;
-    float sentido;
+    int velocidade;
+    bool sentido;
 } Measurement;
+
+extern Measurement measurement;
 
 //
 //  Prototypes

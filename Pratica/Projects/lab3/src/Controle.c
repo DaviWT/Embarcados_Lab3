@@ -1,31 +1,34 @@
 #include "Controle.h"
 
+extern osMutexId_t mutexUartDriver_id, mutexSetPointParams_id, mutexMeasurement_id;
+
 void xControleTask(void *arg){
     
-    // PI controller variable structure
-    typedef struct{
-        uint32_t integratState; // Integrator state
-        uint32_t integratMax;   // Maximum and minimum
-        uint32_t integratMin;   // allowable integrator state
-        float kp;               // integral gain
-        float ki;               // proportional gain
-        int ref;                // reference value
-        int h;                  // Sensor Value
-        int y;                  // out PWM value
-        int e;                  // Current error
-    } StructPI;
-    
-    // Variables
-    StructPI PI = {0, PWMTICKS, 0, KP, KI, REF, 0, 0, 0};
-    float P = 0;    // Parte proporcional do controle
-    float I = 0;    // Parte integrativa do controle
+//    // PI controller variable structure
+//    typedef struct{
+//        uint32_t integratState; // Integrator state
+//        uint32_t integratMax;   // Maximum and minimum
+//        uint32_t integratMin;   // allowable integrator state
+//        float kp;               // integral gain
+//        float ki;               // proportional gain
+//        int ref;                // reference value
+//        int h;                  // Sensor Value
+//        int y;                  // out PWM value
+//        int e;                  // Current error
+//    } StructPI;
+//    
+//    // Variables
+//    StructPI PI = {0, PWMTICKS, 0, KP, KI, REF, 0, 0, 0};
+//    float P = 0;    // Parte proporcional do controle
+//    float I = 0;    // Parte integrativa do controle
     
     // @TODO REMOVER CODIGO DE TESTE
     // CODIGO DE TESTE /////////////////////////////////////////////////////////
     int i = 0;
-    osDelay(200);  
     while(1) {
+        osSemaphoreAcquire(mutexUartDriver_id, osWaitForever);
         UARTprintf("Hello Controle! (%i)\n",i);
+        osSemaphoreRelease(mutexUartDriver_id);
         i++;
         osDelay(500);   
     }

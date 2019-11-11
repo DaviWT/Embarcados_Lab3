@@ -4,5 +4,6 @@
 #include "Inits.h"
 
 void xSetPointTask(void *arg);
+int validateUartInput(char* in, bool* wise);
 
 #endif

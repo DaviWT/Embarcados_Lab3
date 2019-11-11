@@ -27,7 +27,6 @@
 //
 //  Defines
 //
-#define DEBUG_MODE 0
 #define BUFFER_SIZE 8
 
 //
