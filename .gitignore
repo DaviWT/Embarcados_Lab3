@@ -4,6 +4,10 @@
 ### C ###
 # Prerequisites
 *.d
+*.ninja_log
+*.pbi
+*.pbd
+*.pbw
 
 # Object files
 *.o
