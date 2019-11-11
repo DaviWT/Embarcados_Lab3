@@ -3,7 +3,8 @@
 extern osMutexId_t mutexUartDriver_id, mutexSetPointParams_id, mutexMeasurement_id;
 
 void xSetPointTask(void *arg){
-  
+    
+    //SHOW INSTRUCTION MENU
     osSemaphoreAcquire(mutexUartDriver_id, osWaitForever);
     UARTprintf("Welcome to the DC Motor controller made by:\r\n-Adriano Gamba\r\n-Davi Tokikawa\r\n");
     UARTprintf("Instructions:\r\n-Type a \"plus (+)\" or \"minus (-)\" signal in front of the desired speed\r\n");
