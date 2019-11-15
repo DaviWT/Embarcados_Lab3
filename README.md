@@ -1,21 +1,31 @@
-# Repositório de Sistemas Embarcados
-## Laboratório 3 (Lab Final)
-EL68E - Sistemas Embarcados 2019/2
 
+# Laboratório 3 - Controle de Motor CC
+**EL68E - Sistemas Embarcados 2019/2**
+GRUPO: **S11_G04**
 Alunos:
-* Adriano Ricardo de Abreu Gamba
-* Davi Wei Tokikawa
+* *Adriano Ricardo de Abreu Gamba*
+* *Davi Wei Tokikawa*
+# Changelog
+* Inicializações dos periféricos
+	* [x]  GPIO
+	* [x] UART
+	* [x] PWM
+	* [ ] QEI
+* Task do Setpoint
+	* [x] Print das instruções (UART)
+	* [x] Leitura da UART
+	* [x] Verificação do input
+	* [x] Atualização das variáveis
+* Task do Encoder
+	* [ ] Obtenção da velocidade
+	* [ ] Obtenção da direção
+	* [ ] Atualização das variáveis
+	* [x] Escrita dos valores obtidos na UART
+* Task do Controle
+	* [ ] Obter valores de referência e medido
+	* [ ] Lógica de controle PID
+	* [ ] Conversão de velocidade para duty-cycle
+	* [ ] Alterar duty-cycle do PWM
 
-### Observações
 
-Preferencialmente, utilizar uma interface gráfica, como o [Sourcetree](https://www.sourcetreeapp.com/), para evitar possíveis erros de exclusão de arquivos ou pastas.
 
-Não é necessário avisar aos integrantes da equipe ao fazer um novo *commit*, somente ao criar novos *branches* ou quando for realizar um *merge*.
-
-Sempre verificar se o que estiver sendo commitado afeta o trabalho de outro integrante. Se for o caso, criar um novo *branch*.
-
-Ao adicionar novos *commits*, comentar apropriadamente as mudanças feitas para facilitar o entendimento dos outros.
-
-...
-
-**INSERIR MAIS DOCUMENTAÇÃO NO FUTURO**
