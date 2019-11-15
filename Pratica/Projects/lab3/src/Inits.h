@@ -29,7 +29,6 @@
 //
 //  Defines
 //
-#define DEBUG_MODE 0
 #define PWMTICKS 15000      // Number of PWM ticks that define the PWM period
 #define PWMOFFSET 10000     // Minimum number of PWM ticks to keep the motor working properly
 #define REF 0               // Refence value of stabilization
