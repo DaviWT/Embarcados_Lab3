@@ -13,12 +13,11 @@ void xSetPointTask(void *arg){
     UARTprintf("Example: \"+1500\"\r\n\r\nType in below:\r\n");
     osSemaphoreRelease(mutexUartDriver_id);
     
+    //LOCAL VARIABLES
+    int inSpeed;
+    bool wise;
     char UART_input[8];
     while(1) {
-        //LOCAL VARIABLES
-        int inSpeed;
-        bool wise;
-        
         //READS FROM UART
         do
         {

@@ -61,6 +61,7 @@ void PWMInit (void);
 void TimerA0Isr(void);
 void TIMERInit();
 void GPIOInit();
+//TODO: CRIAR QEI INIT
 
 
 #endif
