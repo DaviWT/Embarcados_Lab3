@@ -42,38 +42,6 @@ void UART0_Handler(void)
     UARTStdioIntHandler();
 } // UART0_Handler
 
-//void TimerB0Isr(void)
-//{
-//    TimerIntClear(TIMER0_BASE, TIMER_CAPB_EVENT);  // Clear timer interrupt
-//    HWREG(TIMER0_BASE + 0x050) = 0xFFFF;  // Reset Timer0A counting
-//    
-//    // Para testes com o analisador logico
-//    //PIN_N5_STATE ^= GPIO_PIN_5;
-//    //GPIOPinWrite(GPIO_PORTN_BASE, GPIO_PIN_5, PIN_N5_STATE); // Blink PIN N4
-//    
-//    timerCount = TimerValueGet(TIMER0_BASE, TIMER_B);   //Get first 16-bits
-//    int timerPrescaler = TimerPrescaleMatchGet(TIMER0_BASE, TIMER_B);   //Get 8-bits left
-//    timerCount = (timerPrescaler<<16) | timerCount;     //Concatenate to make a 24-bits value
-//}
-//
-//void TimerA0Isr(void)
-//{
-//    TimerIntClear(TIMER0_BASE, TIMER_TIMA_TIMEOUT);  // Clear timer interrupt
-////    UARTprintf("Interrupcao do Timer A0\n");
-////    flagInterrTimerA0 = 1;
-//    // Para testes com o analisador logica
-//    PIN_N5_STATE ^= GPIO_PIN_5;
-//    GPIOPinWrite(GPIO_PORTN_BASE, GPIO_PIN_5, PIN_N5_STATE); // Blink PIN N4
-//    if (GPIOPinRead(GPIO_PORTL_BASE, GPIO_PIN_5) == 0)
-//        UARTprintf("T = ? | f = ? | D = 0 \n");
-//    else
-//        UARTprintf("T = ? | f = ? | D = 100 \n");
-//    while( UARTBusy(UART0_BASE) ){}
-//
-//    //digitalWrite(RED_LED, digitalRead(RED_LED) ^ 1);         // toggle LED pin
-//    TimerEnable(TIMER0_BASE, TIMER_A);
-//}
-
 /***** CMSIS-RTOS *************************************************************/
 
 //
@@ -109,6 +77,7 @@ void main(void){
     TIMERInit();
     UARTInit();
     PWMInit();
+    QEI_Init();
 //    LEDInit(LED4 | LED3 | LED2 | LED1);
 
     // CMSIS-RTOS kernel init
@@ -127,7 +96,7 @@ void main(void){
     mutexSetPointParams_id = osMutexNew(&Thread_Mutex_attr);  
     mutexMeasurement_id = osMutexNew(&Thread_Mutex_attr);  
     
-    UARTprintf("Hello lab3!\n");
+    UARTprintf("Segura firme com a sua mao!\n");
     
     // CMSIS-RTOS init 
     if(osKernelGetState() == osKernelReady)

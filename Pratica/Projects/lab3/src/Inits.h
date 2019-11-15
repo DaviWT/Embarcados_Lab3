@@ -22,6 +22,7 @@
 #include "driverlib/interrupt.h"
 #include "driverlib/timer.h"
 #include "driverlib/pwm.h"
+#include "driverlib/qei.h"
 #include "system_tm4c1294.h"    // CMSIS-Core
 #include "driverleds.h"         // device drivers
 #include "cmsis_os2.h"          // CMSIS-RTOS
@@ -29,11 +30,15 @@
 //
 //  Defines
 //
-#define PWMTICKS 15000      // Number of PWM ticks that define the PWM period
+#define PWM_FREQ 3000
+#define PWMTICKS (int)(SystemCoreClock/8)/PWM_FREQ        // Number of PWM ticks that define the PWM period
 #define PWMOFFSET 10000     // Minimum number of PWM ticks to keep the motor working properly
 #define REF 0               // Refence value of stabilization
 #define KP 0                // Proporcional constant of the PI controller
 #define KI 0                // Integrative constant of the PI controller
+#define PERIOD_MS 5         // Sampling period for the QEI component
+#define PRINT_TIME_MS 500
+
 #define DEBUG_MODE 1
 
 //
@@ -61,7 +66,7 @@ void PWMInit (void);
 void TimerA0Isr(void);
 void TIMERInit();
 void GPIOInit();
-//TODO: CRIAR QEI INIT
+void QEI_Init();
 
 
 #endif

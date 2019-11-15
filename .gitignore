@@ -60,5 +60,6 @@ Mkfile.old
 dkms.conf
 *.dep
 *.wsdt
+*.xcl
 
 # End of https://www.gitignore.io/api/c

@@ -47,18 +47,15 @@ void PWMInit (void)
     // Configure the PWM generator for count down mode
     PWMGenConfigure(PWM0_BASE, PWM_GEN_0, PWM_GEN_MODE_DOWN | PWM_GEN_MODE_NO_SYNC);
     
-    // Set the Period (expressed in clock ticks). For Example, in order to make
-    // a PWM clock with 10kHZ, is used 12000 clock ticks.
-//    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_0, SystemCoreClock/(8*PWM_CLOCK));
-    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_0, PWMTICKS);    //1kHz
+    // Set the period/frequency of the PWM signal accoarding to PWMTICKS, where:
+    // PWMTICKS = (SystemCoreClock/8)/DESIRED_FREQ 
+    PWMGenPeriodSet(PWM0_BASE, PWM_GEN_0, PWMTICKS);
     
-    // Set the pulse width of PWM0 for a 30% duty cycle.
-//    PWMPulseWidthSet(PWM0_BASE, PWM_OUT_0, (PWM_DUTY/100)*SystemCoreClock/(8*PWM_CLOCK));
-    PWMPulseWidthSet(PWM0_BASE, PWM_OUT_0, 4500);
+    // Set the pulse width of PWM0 for a 50% duty cycle.
+    PWMPulseWidthSet(PWM0_BASE, PWM_OUT_0, (int)PWMTICKS/2);
 
-    // Set the pulse width of PWM1 for a 30% duty cycle.
-//    PWMPulseWidthSet(PWM0_BASE, PWM_OUT_1, (PWM_DUTY/100)*SystemCoreClock/(8*PWM_CLOCK));
-    PWMPulseWidthSet(PWM0_BASE, PWM_OUT_1, 4500);
+    // Set the pulse width of PWM1 for a 50% duty cycle.
+    PWMPulseWidthSet(PWM0_BASE, PWM_OUT_1, (int)PWMTICKS/2);
     
     // Enable the PWM generator
     PWMGenEnable(PWM0_BASE, PWM_GEN_0);
@@ -126,7 +123,7 @@ void GPIOInit()
     // Configure the device pins and enable Ports
     SysCtlPeripheralEnable(SYSCTL_PERIPH_GPION); // Set GPIO N (PN4 - PWM)
     while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPION)); // Wait until done
-    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOL); // Set GPIO L (PL5 - PWM)
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOL); // Set GPIO L (PL1 - QEI)
     while(!SysCtlPeripheralReady(SYSCTL_PERIPH_GPIOL)); // Wait until done
     
     // Set pin PN4 to in for the PWM signal
@@ -144,9 +141,10 @@ void GPIOInit()
                      GPIO_STRENGTH_12MA, 
                      GPIO_PIN_TYPE_STD);        //Configuration
     
-    // Set pin PL5 to timer capture for signal in
-    GPIOPinConfigure(GPIO_PL5_T0CCP1);  
-    GPIOPinTypeTimer(GPIO_PORTL_BASE, GPIO_PIN_5);
+    // Set pin PL1 and PL2 to encoder
+    GPIOPinConfigure(GPIO_PL1_PHA0);
+    GPIOPinConfigure(GPIO_PL2_PHB0);
+    GPIOPinTypeQEI(GPIO_PORTL_BASE, GPIO_PIN_1|GPIO_PIN_2);
     
     // Set pins PF0 and PF1 to out for PWM
     SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF); // Set GPIO F (PWM)
@@ -157,3 +155,39 @@ void GPIOInit()
 }
 
 //TODO: DEFINIÇÃO DE QEI INIT (TUDO MENOS VELOCITY ENABLE)
+void QEI_Init()
+{
+    // 
+    // Enable the QEI0 peripheral 
+    // 
+    SysCtlPeripheralEnable(SYSCTL_PERIPH_QEI0);
+    
+    // 
+    // Wait for the QEI0 module to be ready. 
+    // 
+    while(!SysCtlPeripheralReady(SYSCTL_PERIPH_QEI0));
+    
+    // 
+    // Configure the quadrature encoder to capture edges on both signals and 
+    // maintain an absolute position by resetting on index pulses. Using a 
+    // 18 line encoder at two edges per line, there are 36 pulses per 
+    // revolution; therefore set the maximum position to 35 as the count 
+    // is zero based. 
+    // 
+    QEIConfigure(QEI0_BASE, (QEI_CONFIG_CAPTURE_A | QEI_CONFIG_RESET_IDX | QEI_CONFIG_QUADRATURE | QEI_CONFIG_NO_SWAP), 3999);
+    
+    //
+    // Configures velocity sampling
+    //
+    QEIVelocityConfigure(QEI0_BASE, QEI_VELDIV_1, (uint32_t)(SystemCoreClock*PERIOD_MS/1000));
+    
+    // 
+    // Enable the quadrature encoder. 
+    // 
+    QEIEnable(QEI0_BASE);
+    
+    //
+    // Enables velocity sampling
+    //
+    QEIVelocityEnable(QEI0_BASE);
+}

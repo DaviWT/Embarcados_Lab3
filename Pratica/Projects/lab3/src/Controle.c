@@ -6,7 +6,7 @@ void xControleTask(void *arg){
   
   while(1)
   {
-    
+    /*
     // PI controller variable structure
     typedef struct{
         uint32_t integratState; // Integrator state
@@ -84,6 +84,7 @@ void xControleTask(void *arg){
     
     if (DEBUG_MODE)
         UARTprintf("Velocidade = %i  |  PWM = %i\n",PI.h,PI.y);
+*/
   }
-    
+  
 }
