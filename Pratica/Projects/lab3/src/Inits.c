@@ -1,4 +1,6 @@
 #include "Inits.h"
+Configs configs;
+Measurement measurement;
 
 Configs configs;
 Measurement measurement;
