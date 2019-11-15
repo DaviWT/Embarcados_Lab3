@@ -32,10 +32,10 @@
 //
 #define PWM_FREQ 3000
 #define PWMTICKS (int)(SystemCoreClock/8)/PWM_FREQ        // Number of PWM ticks that define the PWM period
-#define PWMOFFSET 10000     // Minimum number of PWM ticks to keep the motor working properly
+#define PWMOFFSET 0     // Minimum number of PWM ticks to keep the motor working properly
 #define REF 0               // Refence value of stabilization
-#define KP 0                // Proporcional constant of the PI controller
-#define KI 0                // Integrative constant of the PI controller
+#define KP 10                // Proporcional constant of the PI controller
+#define KI 1                // Integrative constant of the PI controller
 #define PERIOD_MS 5         // Sampling period for the QEI component
 #define PRINT_TIME_MS 500
 

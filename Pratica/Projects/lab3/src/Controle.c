@@ -63,7 +63,14 @@ void xControleTask(void *arg){
         
         PWMPulseWidthSet(PWM0_BASE, PWM_OUT_0, PI.y);
         
-        if (DEBUG_MODE)
-            UARTprintf("Velocidade = %i  |  PWM = %i\n",PI.v,PI.y);   
+        //TODO: SETAR PINO CORRESPONDENTE AO SENTIDO
+        
+#if DEBUG_MODE
+        //TODO: CRIAR OUTRO TIMER DE RTOS PARA PRINT DO PWM DE SAIDA
+        osSemaphoreAcquire(mutexUartDriver_id, osWaitForever);
+        UARTprintf("Velocidade = %i  |  PWM = %i percent \n",PI.v,(int)((float)PI.y*100/(float)5000)); 
+        osSemaphoreRelease(mutexUartDriver_id);
+#endif
+        osDelay(1000);
     }
 }
