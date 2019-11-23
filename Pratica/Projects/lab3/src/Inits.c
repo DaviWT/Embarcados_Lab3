@@ -141,6 +141,15 @@ void GPIOInit()
                      GPIO_STRENGTH_12MA, 
                      GPIO_PIN_TYPE_STD);        //Configuration
     
+    // Configure GPIO output pins for direction setting
+    GPIOPinTypeGPIOOutput(GPIO_PORTN_BASE, GPIO_PIN_2|GPIO_PIN_3); // PIN N2 and PIN N3 as output
+    GPIOPinWrite(GPIO_PORTN_BASE, GPIO_PIN_2, 0);
+    GPIOPinWrite(GPIO_PORTN_BASE, GPIO_PIN_3, 0);
+    GPIOPadConfigSet(GPIO_PORTN_BASE, 
+                     GPIO_PIN_2|GPIO_PIN_3, 
+                     GPIO_STRENGTH_12MA, 
+                     GPIO_PIN_TYPE_STD);        //Configuration
+    
     // Set pin PL1 and PL2 to encoder
     GPIOPinConfigure(GPIO_PL1_PHA0);
     GPIOPinConfigure(GPIO_PL2_PHB0);
