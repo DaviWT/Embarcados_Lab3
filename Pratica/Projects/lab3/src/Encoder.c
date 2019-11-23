@@ -30,11 +30,11 @@ void xEncoderTask(void *arg){
     while(1) {
         
         // Acquiring info from encoder module
-        inSpeed = QEIVelocityGet(QEI0_BASE);    //Num. of pulses in 5ms
+        inSpeed = QEIVelocityGet(QEI0_BASE);    //Num. of pulses in PERIOD_MS
         wise = (QEIDirectionGet(QEI0_BASE) == 1) ? true:false;
         
         // Converting to RPM
-        inSpeed = (int)((float)((float)1000/(float)3) * (float)inSpeed);   //Pulses to RPM
+        inSpeed = (int)((float)((float)30000/((float)HOLES_PER_REV*(float)PERIOD_MS)) * (float)inSpeed);   //Pulses to RPM
       
         // Storing data in global structure
         osSemaphoreAcquire(mutexMeasurement_id, osWaitForever);

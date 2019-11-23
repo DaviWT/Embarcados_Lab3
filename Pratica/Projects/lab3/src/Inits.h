@@ -34,8 +34,9 @@
 #define PWMTICKS ((int)(SystemCoreClock/8)/PWM_FREQ)        // Number of PWM ticks that define the PWM period
 #define PWMOFFSET 10000         // Minimum number of PWM ticks to keep the motor working properly
 #define KP 1                    // Proporcional constant of the PI controller
-#define KI 1                  // Integrative constant of the PI controller
-#define PERIOD_MS 5             // Sampling period for the QEI component
+#define KI 1                    // Integrative constant of the PI controller
+#define PERIOD_MS 5            // Sampling period for the QEI component
+#define HOLES_PER_REV 18        // Number of holes per revolution of the encoder
 #define PRINT_TIME_MS 500
 
 #define DEBUG_MODE 1
